@@ -1,0 +1,39 @@
+.card__body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Grid layout for larger screens */
+  gap: 1.5rem;
+  align-items: stretch; /* Ensures all cards have equal height */
+  padding: 1rem; /* Optional: Adds some padding to the grid container */
+}
+
+/* Medium screens: reduce to two columns */
+@media screen and (max-width: 1040px) {
+  .card__body {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Small screens: single column layout */
+@media screen and (max-width: 600px) {
+  .card__body {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.5rem; /* Optional: Adds padding for better alignment */
+  }
+}
+
+/* Tiny screens: tighter layout */
+@media screen and (max-width: 400px) {
+  .card__body {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+/* Hide card body in print view */
+@media print {
+  .card__body {
+    display: none;
+  }
+}

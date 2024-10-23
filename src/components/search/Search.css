@@ -1,0 +1,23 @@
+.search__input {
+  width: 100%; /* Set to 100% width for better responsiveness */
+  max-width: 300px; /* Maximum width for larger screens */
+  padding: 20px 40px;
+  border: 2px solid var(--color-primary); /* Added border thickness for better visibility */
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for focus state */
+}
+
+/* Focus state with enhanced outline and box-shadow */
+.search__input:focus {
+  outline: none; /* Removes default outline */
+  border-color: var(--color-primary);
+  box-shadow: 0 0 8px rgba(0, 216, 255, 0.6); /* Adds a glowing effect to the input border */
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 600px) {
+  .search__input {
+    max-width: 100%; /* Ensures the input takes up full width on small screens */
+    padding: 8px 15px; /* Adjust padding for smaller screens */
+  }
+}

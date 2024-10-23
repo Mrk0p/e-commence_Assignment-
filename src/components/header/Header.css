@@ -1,0 +1,43 @@
+header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between; /* Ensures proper spacing between elements */
+  padding: 1rem;
+  background-color: var(--color-white); /* Optional: added a background color for contrast */
+}
+
+header .header__logo {
+  width: 4rem;
+  max-width: 100%; /* Ensures logo scales properly */
+  animation: rotate 2s linear infinite;
+  will-change: transform; /* Optimizes performance for the animation */
+  cursor: pointer; /* Adds interactivity by changing the cursor */
+  transition: transform 0.2s ease-in-out; /* Adds a smooth hover effect */
+}
+
+/* Hover effect: subtle scaling */
+header .header__logo:hover {
+  transform: scale(1.05);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column; /* Stacks elements vertically on small screens */
+    gap: 0.5rem;
+  }
+
+  header .header__logo {
+    width: 3rem; /* Smaller logo on smaller screens */
+  }
+}

@@ -1,0 +1,99 @@
+.card {
+  box-shadow: 1px 1px 5px var(--softer-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-white); /* Added background color for contrast */
+}
+
+/* Image inside the card */
+.card__img {
+  width: 100%; /* Make the image take full width of the container */
+  height: auto;
+  max-width: 100%; /* Responsive image */
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: var(--soft-color);
+}
+
+.card h4,
+p {
+  margin: 0.5rem 0; /* Adjusted margin for better spacing */
+}
+
+.card h2 {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+
+/* Subtle hover effects */
+.card:hover {
+  box-shadow: 0px 4px 15px var(--softer-color); /* Increased shadow for a more distinct hover */
+  transform: scale(1.02);
+}
+
+/* Price and button layout */
+.card-price-add {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+/* Add/Remove button styles */
+.add-item-btn,
+.remove-item-btn {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Added smoother transitions */
+}
+
+.remove-item-btn {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* Hover and focus states for buttons */
+.add-item-btn:hover,
+.add-item-btn:focus {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.remove-item-btn:hover,
+.remove-item-btn:focus {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+}
+
+/* Accessibility: Focus states for buttons */
+.add-item-btn:focus,
+.remove-item-btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive layout improvements */
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 0.8rem;
+    flex-direction: column;
+  }
+
+  .card-price-add {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

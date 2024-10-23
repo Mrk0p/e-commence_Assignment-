@@ -1,0 +1,124 @@
+.card-list-body {
+  border: 2px solid var(--softer-color);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Add subtle shadow on hover */
+.card-list-body:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-list-img {
+  width: 3rem;
+  margin-top: -5rem;
+}
+
+.card-list-add-minu-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem; /* Adds better spacing between elements */
+}
+
+.card-list-add-minu-body p {
+  margin: 0;
+}
+
+/* Flexbox for the plus/minus buttons */
+.plus-items-minu {
+  display: flex;
+  align-items: center;
+}
+
+.plus-btn,
+.minu-btn,
+.num-of-items {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  min-width: 30px;
+  min-height: 30px;
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem;
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Cursor pointer for interaction */
+.plus-btn,
+.minu-btn {
+  cursor: pointer;
+}
+
+/* Rounded edges for plus and minus buttons */
+.plus-btn {
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.plus-btn:hover,
+.plus-btn:focus {
+  background-color: var(--color-warning);
+  outline: none;
+}
+
+.minu-btn {
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.minu-btn:hover,
+.minu-btn:focus {
+  background-color: var(--color-danger);
+  outline: none;
+}
+
+/* Delete button styles */
+.delete-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+  border-radius: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  color: var(--color-white);
+  background-color: var(--color-danger);
+  outline: none;
+}
+
+/* Make buttons accessible by adding focus states */
+.plus-btn:focus,
+.minu-btn:focus,
+.delete-btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Add responsiveness for smaller screens */
+@media screen and (max-width: 600px) {
+  .card-list-add-minu-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .plus-items-minu {
+    margin-top: 1rem;
+  }
+
+  .delete-btn {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}

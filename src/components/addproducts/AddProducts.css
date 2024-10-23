@@ -1,0 +1,260 @@
+:root {
+  --soft-color: rgba(0, 0, 0, 0.5);
+  --softer-color: rgba(0, 0, 0, 0.2);
+  --color-primary: rgb(0 216 255);
+  --color-warning: green;
+  --color-white: #fff;
+  --color-danger: #ff0000;
+  --scrollbar-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Container for the add products section */
+.addproducts__container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  z-index: 2;
+  animation: fadeIn 0.2s ease-in;
+  background-color: rgba(0, 0, 0, 0.5); /* Adds background fade */
+  overflow: hidden; /* Prevents content from overflowing out of container */
+}
+
+/* Fade out when closing */
+.animate {
+  animation: fadeOut 0.2s ease-out;
+}
+
+/* Left side panel for products */
+.addproducts__container .left-side {
+  height: 100%;
+  width: 70%;
+  background-color: var(--softer-color);
+  transition: width 0.3s ease;
+  overflow-y: auto; /* Ensure scrolling is possible if content exceeds height */
+  overflow-x: hidden;
+}
+
+/* Right side panel for cart/checkout */
+.addproducts__container .right-side {
+  height: 100%;
+  width: 30%;
+  background-color: var(--color-white);
+  padding: 1rem;
+  transition: width 0.3s ease;
+  box-shadow: -4px 0px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+  overflow-y: auto; /* Allows the cart content to scroll if necessary */
+}
+
+/* Header of the right side panel */
+.right-side-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--softer-color); /* Separates header */
+}
+
+/* Body section of the right side */
+.right-side-body {
+  padding: 2rem 0.5rem;
+  height: calc(70vh - 1rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
+}
+
+.right-side-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.right-side-body::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 10px;
+}
+
+/* Footer section for the right side */
+.right-side-footer {
+  height: 20vh;
+  padding: 1rem;
+  background-color: var(--color-white);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05); /* Shadow for footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.total-items {
+  background-color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  color: var(--color-white);
+  border-radius: 0.5rem;
+}
+
+/* Footer content layout */
+.footer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.bar {
+  height: 1px;
+  background-color: var(--softer-color);
+  margin: 1rem 0;
+}
+
+/* Checkout button */
+.check-out {
+  text-align: center;
+}
+
+.check-out-btn {
+  font-size: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.check-out-btn:hover,
+.check-out-btn:focus {
+  background-color: var(--color-white);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  outline: none;
+}
+
+/* Check out print styles */
+.check-out-container {
+  display: none;
+}
+
+.check-out-print {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-white);
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.check-out-title {
+  margin-bottom: 4rem;
+}
+
+/* Table for order summary */
+table {
+  border: 1px solid;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table tr,
+th,
+td {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+table td {
+  color: var(--soft-color);
+}
+
+table tr .table-item-title {
+  width: 20rem;
+}
+
+.total {
+  color: black;
+}
+
+/* Print-specific styles */
+@media print {
+  .addproducts__container .left-side {
+    width: 100%;
+  }
+
+  .check-out-container {
+    display: block;
+  }
+
+  .addproducts__container .right-side {
+    display: none;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Responsiveness */
+@media screen and (max-width: 1040px) {
+  .addproducts__container .left-side {
+    width: 50%;
+  }
+  .addproducts__container .right-side {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .addproducts__container .left-side {
+    width: 40%;
+  }
+  .addproducts__container .right-side {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .addproducts__container {
+    flex-direction: column;
+  }
+
+  .addproducts__container .left-side,
+  .addproducts__container .right-side {
+    width: 100%;
+    height: 50%; /* Split the screen vertically */
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .addproducts__container .left-side {
+    width: 0%;
+    display: none; /* Hide left side on very small screens */
+  }
+
+  .addproducts__container .right-side {
+    width: 100%;
+  }
+}

@@ -1,0 +1,35 @@
+ol {
+  padding: 0 1rem;
+  list-style-position: inside; /* Aligns numbers inside the list container */
+}
+
+ol li {
+  padding-left: 0;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for better interactivity */
+ol li:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Subtle background color on hover */
+  border-bottom-color: rgba(0, 0, 0, 0.5); /* Darkens the border on hover */
+}
+
+/* Focus state for accessibility */
+ol li:focus {
+  outline: 2px solid var(--color-primary); /* Optional: uses a custom variable */
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 600px) {
+  ol {
+    padding: 0 0.5rem;
+  }
+
+  ol li {
+    padding-bottom: 0.75rem; /* Adds a bit more padding for readability */
+  }
+}
